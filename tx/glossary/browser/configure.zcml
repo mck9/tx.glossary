@@ -1,0 +1,40 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:browser="http://namespaces.zope.org/browser"
+   i18n_domain="tx.glossary">
+
+  <include package="plone.app.contentmenu" />
+  <include package="plone.browserlayer" />
+
+  <!-- -*- extra stuff goes here -*- -->
+
+  <!-- Resource directory for stylesheets -->
+  <browser:resourceDirectory
+     name="tx.glossary.stylesheets"
+     directory="stylesheets"
+     layer=".interfaces.ITxGlossaryLayer"
+     />
+
+  <!-- Resource directory for javascripts -->
+  <browser:resourceDirectory
+     name="tx.glossary.javascripts"
+     directory="javascripts"
+     layer=".interfaces.ITxGlossaryLayer"
+     />
+
+  <!-- Resource directory for images -->
+  <browser:resourceDirectory
+     name="tx.glossary.images"
+     directory="images"
+     layer=".interfaces.ITxGlossaryLayer"
+     />
+
+  <browser:viewlet
+     name="tx.glossary.viewlet"
+     manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+     template="viewlets/glossary.pt"
+     permission="zope2.View"
+     layer=".interfaces.ITxGlossaryLayer"
+     />
+
+</configure>

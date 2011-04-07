@@ -1,0 +1,29 @@
+<tal:d define="items python: here.portal_catalog(path='/'.join(here.getPhysicalPath()[0:4]), portal_type='GlossaryItem',)"
+       condition="python: len(here.getPhysicalPath()) > 3">
+<tal:test condition="items">
+<tal:loop tal:repeat="item items">
+
+<tal:entry define="def python: item.getObject(); text def/getText; title def/title_or_id; desc def/Description">
+var terms = new Array();
+terms.push("<tal:content replace="title" />");
+add_related_glossary_definition(
+  "<tal:content replace="python:title.replace(&quot;\042&quot;,&quot;\134\042&quot;)" />",
+  "<tal:content replace="python:desc.replace(&quot;\042&quot;,&quot;\134\042&quot;)" />",
+  "<tal:url replace="def/absolute_url" />",
+  terms,
+  "1",
+  "<tal:url replace="python: text and '1' or '0'" />");
+</tal:entry>
+
+</tal:loop>
+
+function highlight_related_glossary_terms() {
+    var target_node = document.getElementById("region-content");
+    var unauthorized_tags = new Array('a', 'h1', 'h2', 'form');
+    highlight_related_glossary_terms_in_node(target_node, unauthorized_tags);
+}
+
+registerPloneFunction(highlight_related_glossary_terms);
+
+</tal:test>
+</tal:d>

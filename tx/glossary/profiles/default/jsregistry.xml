@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<object name="portal_javascripts">
+
+  <javascript id="++resource++tx.glossary.javascripts/glossary.js"
+              enabled="True"
+              cookable="False"
+              inline="False"
+              />
+
+</object>

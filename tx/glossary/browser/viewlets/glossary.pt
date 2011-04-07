@@ -1,0 +1,7 @@
+<div id="tx-glossary" i18n:domain="plone">
+<tal:tag replace="structure string:&lt;script type='text/javascript'&gt;" />
+var glossary_current_url = "<tal:content replace="here/absolute_url" />";
+<tal:tag replace="structure string:&lt;/script&gt;" />
+<script type="text/javascript"
+        tal:attributes="src string:glossary_words.js;"></script>
+</div>

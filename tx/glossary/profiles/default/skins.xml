@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+
+  <object name="tx_glossary"
+	  meta_type="Filesystem Directory View"
+	  directory="tx.glossary:skins/tx_glossary"/>
+
+  <skin-path name="*">
+    <layer name="tx_glossary"
+	   insert-after="custom"/>
+  </skin-path>
+
+</object>
